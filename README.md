@@ -124,6 +124,8 @@ npm install
 
 # 3️⃣ Iniciar servidor de desarrollo
 ng serve --open
+
+Ojo!. En el repositorio solo se encuentra la carpeta src porque excedía del tamaño máximo a subir
 ```
 
 <div align="center">
