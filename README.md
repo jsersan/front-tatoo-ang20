@@ -1,398 +1,564 @@
-🛍️ TatooDenda - E-commerce Angular
-Una aplicación de comercio electrónico moderna y completa desarrollada con Angular 19, especializada en la venta de productos de piercing y dilatación.
-Mostrar imagen
-Mostrar imagen
-Mostrar imagen
-Mostrar imagen
-📋 Tabla de Contenidos
+# 🎨 TatooDenda - E-commerce Platform
 
-Características
-Tecnologías
-Requisitos Previos
-Instalación
-Configuración
-Uso
-Estructura del Proyecto
-Funcionalidades Principales
-API Backend
-Despliegue
-Contribuir
-Licencia
-Contacto
+<div align="center">
 
-✨ Características
-🎨 Interfaz de Usuario
+![TatooDenda Logo](https://img.shields.io/badge/TatooDenda-E--commerce-52667a?style=for-the-badge&logo=angular&logoColor=white)
 
-Diseño Responsivo: Optimizado para móviles, tablets y escritorio
-Tema Moderno: Paleta de colores corporativa con tonos grises (#52667a)
-Animaciones Suaves: Transiciones y efectos visuales elegantes
-Banner Rotativo: Carrusel automático de imágenes promocionales
+**Una plataforma de comercio electrónico moderna especializada en productos de piercing y dilatación**
 
-🛒 Gestión de Productos
+[![Angular](https://img.shields.io/badge/Angular-19-DD0031?style=flat-square&logo=angular)](https://angular.io/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.0-3178C6?style=flat-square&logo=typescript)](https://www.typescriptlang.org/)
+[![Node.js](https://img.shields.io/badge/Node.js-20+-339933?style=flat-square&logo=node.js)](https://nodejs.org/)
+[![License](https://img.shields.io/badge/License-MIT-yellow?style=flat-square)](LICENSE)
 
-Catálogo Dinámico: Visualización de productos por categorías
-Búsqueda Avanzada: Sistema de búsqueda en tiempo real
-Vista de Producto: Modal emergente con detalles completos
-Gestión de Colores: Soporte para múltiples variantes de color por producto
-Filtrado por Categorías: Navegación jerárquica (Dilataciones, Piercings, etc.)
+[Demo en Vivo](#) • [Documentación](#) • [Reportar Bug](https://github.com/jsersan/tatoodenda/issues) • [Solicitar Feature](https://github.com/jsersan/tatoodenda/issues)
 
-🛍️ Carrito de Compras
+</div>
 
-Carrito Persistente: Almacenamiento en localStorage
-Gestión Completa: Añadir, modificar cantidades y eliminar productos
-Cálculo Automático: Subtotales y total actualizado en tiempo real
-Vista Modal: Carrito lateral deslizante
+---
 
-👤 Gestión de Usuarios
+## 📑 Contenidos
 
-Autenticación JWT: Login y registro seguros
-Perfiles Personalizados: Gestión de datos personales y dirección de envío
-Historial de Pedidos: Visualización de compras anteriores
-Descarga de Albaranes: Generación de PDF con detalles del pedido
+<details>
+<summary>Click para expandir</summary>
 
-💳 Proceso de Compra
+- [🌟 Características Destacadas](#-características-destacadas)
+- [🎯 ¿Por qué TatooDenda?](#-por-qué-tatoodenda)
+- [🚀 Inicio Rápido](#-inicio-rápido)
+- [💻 Stack Tecnológico](#-stack-tecnológico)
+- [📸 Screenshots](#-screenshots)
+- [🏗️ Arquitectura](#️-arquitectura)
+- [🔧 Configuración Avanzada](#-configuración-avanzada)
+- [📦 Scripts Disponibles](#-scripts-disponibles)
+- [🌐 API Reference](#-api-reference)
+- [🚢 Despliegue](#-despliegue)
+- [🤝 Contribuir](#-contribuir)
+- [📄 Licencia](#-licencia)
+- [👨‍💻 Autor](#-autor)
 
-Checkout Simplificado: Flujo de compra en 3 pasos
-Autocompletado: Datos precargados desde el perfil del usuario
-Validación de Formularios: Validaciones en tiempo real
-Confirmación de Pedido: Modal de confirmación con resumen
+</details>
 
-🔐 Seguridad
+---
 
-Guards de Autenticación: Protección de rutas privadas
-Interceptores HTTP: Manejo automático de tokens JWT
-Validación de Contraseñas: Modal de confirmación para cambios críticos
+## 🌟 Características Destacadas
 
-📱 Características Adicionales
+<table>
+<tr>
+<td width="50%">
 
-Modo Offline: Funcionamiento parcial sin conexión
-Optimización de Imágenes: Carga eficiente con fallbacks
-SEO Friendly: Meta tags y estructura optimizada
-Accesibilidad: Cumplimiento de estándares WCAG
+### 🎨 **Interfaz Moderna**
+- ✨ Diseño responsive y elegante
+- 🎭 Animaciones fluidas
+- 🌓 Tema corporativo profesional
+- 📱 Mobile-first approach
 
-🛠️ Tecnologías
-Frontend
+</td>
+<td width="50%">
 
-Angular 19: Framework principal
-TypeScript 5.0: Lenguaje de programación
-RxJS: Programación reactiva
-Bootstrap 5: Framework CSS base
-SCSS: Preprocesador CSS
-SweetAlert2: Alertas y modales elegantes
-jsPDF: Generación de PDFs del lado del cliente
+### 🛒 **Gestión Inteligente**
+- 🔍 Búsqueda en tiempo real
+- 🎯 Filtrado por categorías
+- 🎨 Múltiples variantes de color
+- 💾 Carrito persistente
 
-Backend (Requisitos)
+</td>
+</tr>
+<tr>
+<td width="50%">
 
-Node.js: Entorno de ejecución
-Express: Framework de servidor
-MySQL: Base de datos
-JWT: Autenticación basada en tokens
+### 🔐 **Seguridad Robusta**
+- 🔑 Autenticación JWT
+- 🛡️ Guards de protección
+- 🔒 Validación de contraseñas
+- 🚦 Interceptores HTTP
 
-Herramientas de Desarrollo
+</td>
+<td width="50%">
 
-Angular CLI: Herramienta de línea de comandos
-ESLint: Linter de código
-Prettier: Formateador de código
+### 📊 **Gestión Completa**
+- 👤 Perfiles personalizados
+- 📜 Historial de pedidos
+- 📄 Generación de PDFs
+- ✅ Proceso de checkout simplificado
 
-📦 Requisitos Previos
-Antes de comenzar, asegúrate de tener instalado:
+</td>
+</tr>
+</table>
 
-Node.js (v20 o superior)
-npm (v10 o superior)
-Angular CLI (v19 o superior)
-Git
+---
 
-bash# Verificar versiones instaladas
-node --version
-npm --version
-ng version
-🚀 Instalación
-1. Clonar el Repositorio
-bashgit clone https://github.com/tu-usuario/tatoodenda-frontend.git
+## 🎯 ¿Por qué TatooDenda?
+```typescript
+const features = {
+  design: '🎨 Interfaz intuitiva y atractiva',
+  performance: '⚡ Optimizado para velocidad',
+  security: '🔐 Implementación segura con JWT',
+  scalability: '📈 Arquitectura escalable',
+  responsive: '📱 100% Mobile-friendly',
+  modern: '🚀 Tecnologías de última generación'
+};
+```
+
+> **TatooDenda** combina lo mejor del desarrollo frontend moderno con una experiencia de usuario excepcional, creando una plataforma de e-commerce completa y profesional.
+
+---
+
+## 🚀 Inicio Rápido
+
+### Prerrequisitos
+```bash
+# Verificar versiones instaladas
+node -v   # ≥ 20.0.0
+npm -v    # ≥ 10.0.0
+ng version # ≥ 19.0.0
+```
+
+### Instalación en 3 Pasos
+```bash
+# 1️⃣ Clonar el repositorio
+git clone https://github.com/jsersan/tatoodenda-frontend.git
 cd tatoodenda-frontend
-2. Instalar Dependencias
-bashnpm install
-3. Configurar Variables de Entorno
-Crea un archivo src/environments/environment.ts:
-typescriptexport const environment = {
-  production: false,
-  apiUrl: 'http://localhost:3000/api'
-};
-Para producción, edita src/environments/environment.prod.ts:
-typescriptexport const environment = {
-  production: true,
-  apiUrl: 'https://tu-api.com/api'
-};
-4. Iniciar el Servidor de Desarrollo
-bashng serve
+
+# 2️⃣ Instalar dependencias
+npm install
+
+# 3️⃣ Iniciar servidor de desarrollo
+ng serve --open
 ```
 
-Navega a `http://localhost:4200/`. La aplicación se recargará automáticamente al hacer cambios.
+<div align="center">
 
-## ⚙️ Configuración
+**¡Listo!** 🎉 Tu aplicación estará corriendo en `http://localhost:4200`
 
-### Estructura de Configuración
+</div>
+
+---
+
+## 💻 Stack Tecnológico
+
+<div align="center">
+
+### Frontend Core
+
+![Angular](https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
+![RxJS](https://img.shields.io/badge/RxJS-B7178C?style=for-the-badge&logo=reactivex&logoColor=white)
+
+### Estilos & UI
+
+![SCSS](https://img.shields.io/badge/SCSS-CC6699?style=for-the-badge&logo=sass&logoColor=white)
+![Bootstrap](https://img.shields.io/badge/Bootstrap-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white)
+
+### Herramientas
+
+![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white)
+![npm](https://img.shields.io/badge/npm-CB3837?style=for-the-badge&logo=npm&logoColor=white)
+![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
+
+</div>
+
+### Dependencias Principales
+
+| Librería | Versión | Propósito |
+|----------|---------|-----------|
+| `@angular/core` | ^19.0.0 | Framework principal |
+| `@angular/router` | ^19.0.0 | Sistema de rutas |
+| `rxjs` | ^7.8.0 | Programación reactiva |
+| `bootstrap` | ^5.3.0 | Framework CSS |
+| `sweetalert2` | ^11.0.0 | Alertas elegantes |
+| `jspdf` | ^2.5.0 | Generación de PDFs |
+
+---
+
+## 📸 Screenshots
+
+<div align="center">
+
+### 🏠 Página Principal
+![Home Page](https://via.placeholder.com/800x400/52667a/ffffff?text=Home+Page)
+
+### 🛒 Carrito de Compras
+![Shopping Cart](https://via.placeholder.com/800x400/3d4d5c/ffffff?text=Shopping+Cart)
+
+### 📱 Vista Móvil
+![Mobile View](https://via.placeholder.com/400x600/c2cdd6/ffffff?text=Mobile+Responsive)
+
+</div>
+
+---
+
+## 🏗️ Arquitectura
 ```
-src/
-├── environments/
-│   ├── environment.ts          # Desarrollo
-│   └── environment.prod.ts     # Producción
-└── app/
-    ├── guards/                 # Guards de autenticación
-    ├── interceptors/           # Interceptores HTTP
-    └── services/               # Servicios principales
-Configurar API Backend
-Asegúrate de que tu backend esté ejecutándose en el puerto especificado en environment.ts:
-typescriptapiUrl: 'http://localhost:3000/api'
-Configurar Rutas Protegidas
-Las rutas protegidas usan AuthGuard:
-typescript{
-  path: 'checkout',
-  component: CheckoutComponent,
-  canActivate: [AuthGuard]
-}
-💻 Uso
-Comandos Principales
-bash# Desarrollo
-ng serve                    # Iniciar servidor de desarrollo
-ng serve --open            # Abrir automáticamente en el navegador
-
-# Producción
-ng build                   # Build para producción
-ng build --configuration production  # Build optimizado
-
-# Testing
-ng test                    # Ejecutar tests unitarios
-ng e2e                     # Ejecutar tests end-to-end
-
-# Linting
-ng lint                    # Analizar código
-
-# Generación de Componentes
-ng generate component nombre-componente
-ng generate service nombre-servicio
-ng generate guard nombre-guard
+📦 TatooDenda Frontend
+│
+├── 🎨 Components Layer
+│   ├── Shared (Header, Navbar, Footer)
+│   ├── Feature (Products, Cart, Checkout)
+│   └── Admin (Product/Category Management)
+│
+├── 🔧 Services Layer
+│   ├── Authentication
+│   ├── Data Management
+│   └── Business Logic
+│
+├── 🛡️ Security Layer
+│   ├── Guards
+│   └── Interceptors
+│
+└── 📊 Data Layer
+    ├── Models
+    └── Helpers
 ```
 
-### Flujo de Usuario Típico
+### Estructura de Carpetas
 
-1. **Navegación**: El usuario explora productos por categorías o búsqueda
-2. **Visualización**: Hace clic en un producto para ver detalles en modal
-3. **Selección**: Elige color y cantidad, añade al carrito
-4. **Carrito**: Revisa productos, modifica cantidades
-5. **Checkout**: Inicia sesión (si no está autenticado)
-6. **Pago**: Completa el formulario de checkout
-7. **Confirmación**: Recibe confirmación del pedido
-8. **Historial**: Puede descargar albarán en PDF
-
-## 📁 Estructura del Proyecto
+<details>
+<summary>Click para ver estructura completa</summary>
 ```
 src/app/
-├── components/
-│   ├── admin/                  # Panel de administración
-│   │   ├── category-manager/   # Gestión de categorías
-│   │   └── product-manager/    # Gestión de productos
-│   ├── cart/                   # Carrito de compras
-│   ├── checkout/               # Proceso de pago
-│   ├── home/                   # Página principal
-│   ├── product/                # Componentes de productos
-│   │   ├── product-detail/     # Detalle de producto
-│   │   ├── product-list/       # Lista de productos
-│   │   ├── product-popup/      # Modal de producto
-│   │   └── search-results/     # Resultados de búsqueda
-│   ├── shared/                 # Componentes compartidos
-│   │   ├── header/             # Encabezado
-│   │   ├── navbar/             # Barra de navegación
-│   │   └── footer/             # Pie de página
-│   ├── user/                   # Componentes de usuario
-│   │   └── profile/            # Perfil de usuario
-│   ├── login-popup/            # Modal de login
-│   ├── registro-popup/         # Modal de registro
-│   ├── historial-pedidos/      # Historial de compras
-│   └── password-confirm-modal/ # Confirmación de contraseña
-├── guards/
-│   ├── auth.guard.ts           # Protección de rutas
-│   └── admin.guard.ts          # Protección rutas admin
-├── interceptors/
-│   ├── auth.interceptor.ts     # Inyección de JWT
-│   └── error.interceptor.ts    # Manejo de errores HTTP
-├── models/
-│   ├── product.ts              # Modelo de producto
-│   ├── category.ts             # Modelo de categoría
-│   ├── user.ts                 # Modelo de usuario
-│   └── order.ts                # Modelo de pedido
-├── services/
-│   ├── auth.service.ts         # Autenticación
-│   ├── product.service.ts      # Gestión de productos
-│   ├── category.service.ts     # Gestión de categorías
-│   ├── cart.service.ts         # Gestión del carrito
-│   ├── order.service.ts        # Gestión de pedidos
-│   ├── pdf.service.ts          # Generación de PDFs
-│   └── login-popup.service.ts  # Control de modales
-├── helpers/
-│   └── product-image-helper.ts # Helper para imágenes
-└── pipes/
-    └── image-url.pipe.ts       # Pipe para URLs de imágenes
-🎯 Funcionalidades Principales
-Sistema de Autenticación
-typescript// Login
-this.authService.login(username, password).subscribe({
-  next: (user) => {
-    // Usuario autenticado
-    // Token guardado en localStorage
-    this.router.navigate(['/']);
-  },
-  error: (error) => {
-    // Manejar error
-  }
-});
-Gestión del Carrito
-typescript// Añadir al carrito
-this.cartService.addToCart(product, quantity, color);
-
-// Actualizar cantidad
-this.cartService.updateItemQuantity(itemId, color, newQuantity);
-
-// Eliminar del carrito
-this.cartService.removeItem(itemId, color);
-
-// Obtener total
-const total = this.cartService.getCartTotal();
-Creación de Pedidos
-typescriptconst order: Order = {
-  usuario_id: currentUser.id,
-  fecha: new Date().toISOString(),
-  total: this.total,
-  lineas: this.orderLines,
-  estado: 'pendiente'
-};
-
-this.orderService.createOrder(order).subscribe({
-  next: (response) => {
-    // Pedido creado exitosamente
-    this.cartService.clearCart();
-  }
-});
-Generación de PDFs
-typescriptthis.pdfService.generarAlbaran(pedido, lineas, usuario)
-  .then((pdfBlob) => {
-    // Descargar PDF automáticamente
-    const url = window.URL.createObjectURL(pdfBlob);
-    const link = document.createElement('a');
-    link.href = url;
-    link.download = `Albaran_${pedido.id}.pdf`;
-    link.click();
-  });
+├── 📁 components/
+│   ├── 🏪 admin/
+│   │   ├── category-manager/
+│   │   └── product-manager/
+│   ├── 🛒 cart/
+│   ├── 💳 checkout/
+│   ├── 🏠 home/
+│   ├── 📦 product/
+│   │   ├── product-detail/
+│   │   ├── product-list/
+│   │   ├── product-popup/
+│   │   └── search-results/
+│   ├── 🔄 shared/
+│   │   ├── header/
+│   │   ├── navbar/
+│   │   └── footer/
+│   └── 👤 user/
+│       └── profile/
+├── 🛡️ guards/
+│   ├── auth.guard.ts
+│   └── admin.guard.ts
+├── 🔌 interceptors/
+│   ├── auth.interceptor.ts
+│   └── error.interceptor.ts
+├── 📋 models/
+│   ├── product.ts
+│   ├── category.ts
+│   ├── user.ts
+│   └── order.ts
+├── ⚙️ services/
+│   ├── auth.service.ts
+│   ├── product.service.ts
+│   ├── cart.service.ts
+│   └── order.service.ts
+└── 🛠️ helpers/
+    └── product-image-helper.ts
 ```
 
-## 🔌 API Backend
+</details>
+
+---
+
+## 🔧 Configuración Avanzada
+
+### Variables de Entorno
+
+Crea `src/environments/environment.ts`:
+```typescript
+export const environment = {
+  production: false,
+  apiUrl: 'http://localhost:3000/api',
+  
+  // Configuraciones opcionales
+  features: {
+    enableAnalytics: false,
+    enableDebugMode: true,
+    enableServiceWorker: false
+  },
+  
+  // Timeouts y límites
+  api: {
+    timeout: 30000,
+    retries: 3
+  }
+};
+```
+
+### Personalización de Tema
+
+Edita `src/styles.scss`:
+```scss
+// Variables principales
+$primary: #52667a;        // Color principal
+$primary-dark: #3d4d5c;   // Oscuro
+$primary-light: #c2cdd6;  // Claro
+
+// Personaliza según necesites
+$success: #28a745;
+$warning: #ffc107;
+$danger: #dc3545;
+```
+
+---
+
+## 📦 Scripts Disponibles
+```bash
+# 🚀 Desarrollo
+npm start                 # Inicia servidor de desarrollo
+npm run start:open        # Inicia y abre navegador automáticamente
+
+# 🏗️ Construcción
+npm run build             # Build de producción
+npm run build:dev         # Build de desarrollo
+npm run build:stats       # Build con análisis de bundle
+
+# 🧪 Testing
+npm test                  # Tests unitarios
+npm run test:coverage     # Tests con cobertura
+npm run e2e               # Tests end-to-end
+
+# 🔍 Análisis
+npm run lint              # Analizar código
+npm run lint:fix          # Corregir problemas automáticamente
+
+# 🧹 Limpieza
+npm run clean             # Limpiar node_modules y dist
+```
+
+---
+
+## 🌐 API Reference
 
 ### Endpoints Principales
 
-#### Autenticación
-```
-POST   /api/users/login          # Iniciar sesión
-POST   /api/users/register       # Registrar usuario
-PUT    /api/users/:id            # Actualizar usuario
-```
+#### 🔐 Autenticación
+```http
+POST /api/users/login
+Content-Type: application/json
 
-#### Productos
-```
-GET    /api/productos            # Listar todos los productos
-GET    /api/productos/:id        # Obtener producto específico
-GET    /api/productos/categoria/:id  # Productos por categoría
-GET    /api/productos/search?q=term  # Buscar productos
-POST   /api/productos            # Crear producto (admin)
-PUT    /api/productos/:id        # Actualizar producto (admin)
-DELETE /api/productos/:id        # Eliminar producto (admin)
-```
-
-#### Categorías
-```
-GET    /api/categorias           # Listar categorías
-GET    /api/categorias/:id       # Obtener categoría
-POST   /api/categorias           # Crear categoría (admin)
-PUT    /api/categorias/:id       # Actualizar categoría (admin)
-DELETE /api/categorias/:id       # Eliminar categoría (admin)
-```
-
-#### Pedidos
-```
-GET    /api/pedidos/user/:userId # Pedidos del usuario
-GET    /api/pedidos/:id          # Obtener pedido específico
-GET    /api/pedidos/:id/lineas   # Líneas del pedido
-POST   /api/pedidos              # Crear pedido
-Formato de Respuestas
-Éxito (200 OK)
-json{
-  "data": { /* datos */ },
-  "message": "Operación exitosa"
+{
+  "username": "string",
+  "password": "string"
 }
-Error (400/401/404/500)
-json{
-  "error": "Mensaje de error",
-  "message": "Descripción detallada"
+```
+
+<details>
+<summary>Ver más endpoints</summary>
+
+#### 📦 Productos
+```http
+# Listar productos
+GET /api/productos
+
+# Obtener producto específico
+GET /api/productos/:id
+
+# Buscar productos
+GET /api/productos/search?q=termino
+
+# Productos por categoría
+GET /api/productos/categoria/:id
+```
+
+#### 📂 Categorías
+```http
+# Listar categorías
+GET /api/categorias
+
+# Obtener categoría
+GET /api/categorias/:id
+```
+
+#### 🛍️ Pedidos
+```http
+# Crear pedido
+POST /api/pedidos
+Authorization: Bearer {token}
+
+{
+  "iduser": number,
+  "total": number,
+  "lineas": [...]
 }
-🌐 Despliegue
-Build para Producción
-bash# Build optimizado
+
+# Obtener pedidos del usuario
+GET /api/pedidos/user/:userId
+Authorization: Bearer {token}
+```
+
+</details>
+
+### Ejemplo de Uso
+```typescript
+// Ejemplo de llamada a la API
+this.productService.getProducts().subscribe({
+  next: (products) => {
+    console.log('Productos cargados:', products);
+  },
+  error: (error) => {
+    console.error('Error:', error);
+  }
+});
+```
+
+---
+
+## 🚢 Despliegue
+
+### 📦 Build de Producción
+```bash
+# Generar build optimizado
 ng build --configuration production
 
-# El resultado estará en dist/
-Desplegar en Servidor Web
-bash# Copiar contenido de dist/ a tu servidor
-scp -r dist/* usuario@servidor:/ruta/web/
-Desplegar en Netlify
+# Los archivos se generarán en dist/
+```
 
-Conecta tu repositorio de GitHub
-Configura el comando de build: ng build --configuration production
-Configura el directorio de publicación: dist/tatoodenda-frontend
-Añade variables de entorno si es necesario
+### ☁️ Deploy en Netlify
 
-Desplegar en Vercel
-bash# Instalar Vercel CLI
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start)
+```bash
+# Configuración en netlify.toml
+[build]
+  command = "ng build --configuration production"
+  publish = "dist/tatoodenda-frontend"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+```
+
+### ▲ Deploy en Vercel
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new)
+```bash
+# Instalar Vercel CLI
 npm i -g vercel
 
 # Desplegar
 vercel --prod
-Variables de Entorno en Producción
-Asegúrate de configurar:
+```
 
-API_URL: URL de tu backend
-Cualquier otra variable específica de tu entorno
+### 🐳 Docker
+```dockerfile
+# Dockerfile
+FROM node:20-alpine AS build
+WORKDIR /app
+COPY package*.json ./
+RUN npm ci
+COPY . .
+RUN npm run build
 
-🤝 Contribuir
-¡Las contribuciones son bienvenidas! Por favor:
+FROM nginx:alpine
+COPY --from=build /app/dist/tatoodenda-frontend /usr/share/nginx/html
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
+```
+```bash
+# Construir y ejecutar
+docker build -t tatoodenda-frontend .
+docker run -p 8080:80 tatoodenda-frontend
+```
 
-Fork el proyecto
-Crea una rama para tu feature (git checkout -b feature/AmazingFeature)
-Commit tus cambios (git commit -m 'Add some AmazingFeature')
-Push a la rama (git push origin feature/AmazingFeature)
-Abre un Pull Request
+---
 
-Guía de Estilo
+## 🤝 Contribuir
 
-Usa TypeScript con tipos estrictos
-Sigue las convenciones de Angular
-Comenta código complejo
-Escribe tests para nuevas funcionalidades
-Mantén componentes pequeños y reutilizables
+<div align="center">
 
-📄 Licencia
-Este proyecto está bajo la Licencia MIT - ver el archivo LICENSE para más detalles.
-👨‍💻 Autor
-Txema Serrano Sánchez
+**¡Nos encantaría contar con tu ayuda!** 💪
 
-GitHub: @jsersan
-Email: tu-email@ejemplo.com
+</div>
 
-🙏 Agradecimientos
+### Proceso de Contribución
 
-Angular Team por el excelente framework
-Comunidad de desarrolladores
-Bootstrap por los componentes UI
-SweetAlert2 por las alertas elegantes
+1. 🍴 **Fork** el proyecto
+2. 🌿 **Crea** tu rama de feature
+```bash
+   git checkout -b feature/AmazingFeature
+```
+3. 💾 **Commit** tus cambios
+```bash
+   git commit -m '✨ Add: Amazing Feature'
+```
+4. 📤 **Push** a la rama
+```bash
+   git push origin feature/AmazingFeature
+```
+5. 🎯 **Abre** un Pull Request
 
+### Guía de Estilo
 
-⭐️ Si este proyecto te ha sido útil, ¡considera darle una estrella!
-© 2025 TatooDenda - E-commerce con Angular
+- ✅ Usa **TypeScript** con tipos estrictos
+- 📝 Sigue las **convenciones de Angular**
+- 💬 Comenta código complejo
+- 🧪 Escribe tests para nuevas funcionalidades
+- 🎨 Mantén componentes pequeños y reutilizables
+
+### Commit Messages
+
+Usamos [Conventional Commits](https://www.conventionalcommits.org/):
+```
+✨ feat: Nueva funcionalidad
+🐛 fix: Corrección de bug
+📚 docs: Actualización de documentación
+💄 style: Cambios de formato
+♻️ refactor: Refactorización de código
+⚡ perf: Mejora de rendimiento
+✅ test: Añadir tests
+🔧 chore: Tareas de mantenimiento
+```
+
+---
+
+## 📄 Licencia
+
+<div align="center">
+
+Este proyecto está bajo la **Licencia MIT**
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](LICENSE)
+
+</div>
+
+---
+
+## 👨‍💻 Autor
+
+<div align="center">
+
+### **Txema Serrano Sánchez**
+
+[![GitHub](https://img.shields.io/badge/GitHub-jsersan-181717?style=for-the-badge&logo=github)](https://github.com/jsersan)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0077B5?style=for-the-badge&logo=linkedin)](https://linkedin.com/in/tu-perfil)
+[![Email](https://img.shields.io/badge/Email-Contact-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:tu-email@ejemplo.com)
+
+</div>
+
+---
+
+## 🙏 Agradecimientos
+
+<div align="center">
+
+Agradecimiento especial a:
+
+- 🅰️ **Angular Team** - Por el increíble framework
+- 🎨 **Bootstrap Team** - Por los componentes UI
+- 💖 **Open Source Community** - Por las increíbles herramientas
+- ☕ **Café** - Por hacer posible todo esto
+
+</div>
+
+---
+
+<div align="center">
+
+### ⭐ Si te ha gustado este proyecto, ¡dale una estrella!
+
+**Hecho con ❤️ y ☕ por [Txema Serrano](https://github.com/jsersan)**
+
+---
+
+**© 2025 TatooDenda** • [Website](#) • [Documentation](#) • [Support](#)
+
+</div>
