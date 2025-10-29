@@ -4,9 +4,11 @@ import { ProductService } from '../../../services/product.service';
 import { Product } from '../../../models/product';
 
 @Component({
-  selector: 'app-search-results',
-  templateUrl: './search-results.component.html',
-  styleUrls: []
+    selector: 'app-search-results',
+    templateUrl: './search-results.component.html',
+    styleUrls: ['./search-results.component.scss'] // ✅ CORREGIDO: Cargar el archivo SCSS
+    ,
+    standalone: false
 })
 export class SearchResultsComponent implements OnInit {
   // Array para almacenar los productos encontrados
@@ -43,7 +45,7 @@ export class SearchResultsComponent implements OnInit {
     });
   }
 
-  // ✅ Método para buscar productos (ya está bien implementado)
+  // ✅ Método para buscar productos
   searchProducts(): void {
     this.loading = true;
     console.log('🔍 Iniciando búsqueda para:', this.searchTerm);
@@ -72,7 +74,7 @@ export class SearchResultsComponent implements OnInit {
     }).format(price);
   }
 
-  // ✅ AÑADIR método para abrir popup de producto
+  // ✅ Método para abrir popup de producto
   openProductPopup(product: Product, event: Event): void {
     // Prevenir la navegación por defecto
     event.preventDefault();
@@ -84,7 +86,7 @@ export class SearchResultsComponent implements OnInit {
     this.productService.selectProductForPopup(product);
   }
 
-  // ✅ AÑADIR método para manejar errores de carga de imágenes
+  // ✅ Método para manejar errores de carga de imágenes
   handleImageError(event: Event): void {
     this.productService.handleImageError(event);
   }

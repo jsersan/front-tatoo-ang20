@@ -1,3 +1,8 @@
+// ============================================
+// PDF SERVICE - SOLO PARA FRONTEND (ANGULAR)
+// src/app/services/pdf.service.ts
+// ============================================
+
 import { Injectable } from '@angular/core';
 import jsPDF from 'jspdf';
 
@@ -7,27 +12,50 @@ import jsPDF from 'jspdf';
 export class PdfService {
   constructor() { }
 
-  /**
-   * Genera un albarán PDF de un pedido de forma profesional y lo devuelve como Promise<Blob>
-   * @param pedido - Datos del pedido
-   * @param lineas - Líneas del pedido
-   * @param usuario - Datos del comprador
-   */
+  /** MÉTODO AUXILIAR: Agregar pie de página */
+  private agregarPieDePagina(pdf: jsPDF, numeroPagina: number): void {
+    const pageWidth = pdf.internal.pageSize.getWidth();
+    const pageHeight = pdf.internal.pageSize.getHeight();
+    const yPosition = pageHeight - 20;
+
+    pdf.setFontSize(8);
+    pdf.setTextColor(150, 150, 150);
+    pdf.text('Este documento fue generado automáticamente', 20, yPosition);
+    pdf.text(`Página ${numeroPagina}`, pageWidth - 30, yPosition);
+  }
+
+  /** MÉTODO AUXILIAR: Agregar encabezado de tabla */
+  private agregarEncabezadoTabla(pdf: jsPDF, yPosition: number): number {
+    const pageWidth = pdf.internal.pageSize.getWidth();
+    const lightGray: [number, number, number] = [242, 243, 244];
+
+    pdf.setFillColor(lightGray[0], lightGray[1], lightGray[2]);
+    pdf.rect(20, yPosition - 5, pageWidth - 40, 8, 'F');
+
+    pdf.setFontSize(9);
+    pdf.setTextColor(0, 0, 0);
+    pdf.setFont('helvetica', 'bold');
+    pdf.text('Producto', 25, yPosition);
+    pdf.text('Color', 120, yPosition);
+    pdf.text('Cantidad', 160, yPosition, { align: 'right' });
+    pdf.text('Precio', pageWidth - 25, yPosition, { align: 'right' });
+
+    pdf.setFont('helvetica', 'normal');
+    return yPosition + 10;
+  }
+
+  /** Genera un albarán PDF y lo retorna como Blob */
   generarAlbaran(pedido: any, lineas: any[], usuario?: any): Promise<Blob> {
     return new Promise((resolve, reject) => {
       try {
-        console.log('📋 Generando albarán para pedido:', pedido.id);
-        console.log('📦 Líneas recibidas:', lineas);
-
         const pdf = new jsPDF('p', 'mm', 'a4');
         const pageWidth = pdf.internal.pageSize.getWidth();
         const pageHeight = pdf.internal.pageSize.getHeight();
         let yPosition = 20;
-
+        let numeroPagina = 1;
         const primaryColor: [number, number, number] = [82, 102, 122];
-        const lightGray: [number, number, number] = [242, 243, 244];
 
-        // Encabezado
+        // ========== ENCABEZADO ==========
         pdf.setFillColor(primaryColor[0], primaryColor[1], primaryColor[2]);
         pdf.rect(0, 0, pageWidth, 40, 'F');
         pdf.setTextColor(255, 255, 255);
@@ -36,7 +64,7 @@ export class PdfService {
         pdf.setFontSize(10);
         pdf.text(`Ref: #${pedido.id}`, 20, 32);
 
-        // Información del comprador (si se proporciona)
+        // ========== INFORMACIÓN DEL COMPRADOR ==========
         yPosition = 55;
         if (usuario) {
           pdf.setTextColor(0, 0, 0);
@@ -54,7 +82,7 @@ export class PdfService {
           yPosition += 15;
         }
 
-        // Información del pedido
+        // ========== INFORMACIÓN DEL PEDIDO ==========
         pdf.setTextColor(0, 0, 0);
         pdf.setFontSize(12);
         pdf.text('Información del Pedido', 20, yPosition);
@@ -64,95 +92,64 @@ export class PdfService {
         yPosition += 7;
         pdf.text(`Referencia: #${pedido.id}`, 20, yPosition);
         yPosition += 7;
-        pdf.text(`Total: €${pedido.total.toFixed(2)}`, 20, yPosition);
+        pdf.text(`${pedido.total.toFixed(2)} €`, 20, yPosition);  // <--- Cambio aquí
 
-        // Tabla de productos
+        // ========== TABLA DE PRODUCTOS ==========
         yPosition += 20;
         pdf.setFontSize(11);
         pdf.setFont('helvetica', 'bold');
         pdf.text('Productos', 20, yPosition);
         yPosition += 10;
 
-        // Encabezado de tabla
-        pdf.setFillColor(lightGray[0], lightGray[1], lightGray[2]);
-        pdf.rect(20, yPosition - 5, pageWidth - 40, 8, 'F');
-        pdf.setFontSize(9);
-        pdf.setTextColor(0, 0, 0);
-        pdf.text('Producto', 25, yPosition);
-        pdf.text('Color', 120, yPosition);
-        pdf.text('Cantidad', 160, yPosition, { align: 'right' });
-        pdf.text('Precio', pageWidth - 25, yPosition, { align: 'right' });
-        yPosition += 10;
+        yPosition = this.agregarEncabezadoTabla(pdf, yPosition);
 
-        // Filas de productos
+        // ========== FILAS DE PRODUCTOS ==========
         pdf.setFont('helvetica', 'normal');
         lineas.forEach((linea: any) => {
           const nombre = linea.nombre || 'Sin nombre';
           const color = linea.color || 'N/A';
-          // Intentar obtener cantidad de 'cantidad' primero, luego 'cant'
           const cantidadRaw = linea.cantidad !== undefined ? linea.cantidad : linea.cant;
           const cantidad = parseInt(cantidadRaw) || 0;
-          // Intentar obtener precio de 'precio' primero, luego 'product.precio'
           const precioRaw = linea.precio !== undefined ? linea.precio : linea.product?.precio;
           const precio = parseFloat(precioRaw) || 0;
           const precioLinea = precio * cantidad;
 
+          if (yPosition > pageHeight - 40) {
+            this.agregarPieDePagina(pdf, numeroPagina);
+            pdf.addPage();
+            numeroPagina++;
+            yPosition = 20;
+            yPosition = this.agregarEncabezadoTabla(pdf, yPosition);
+          }
+
           pdf.text(nombre, 25, yPosition);
           pdf.text(color, 120, yPosition);
           pdf.text(cantidad.toString(), 160, yPosition, { align: 'right' });
-          pdf.text(`€ ${precioLinea.toFixed(2)}`, pageWidth - 25, yPosition, { align: 'right' });
+          pdf.text(`${precioLinea.toFixed(2)} €`, pageWidth - 25, yPosition, { align: 'right' }); // <--- Cambio aquí
 
           yPosition += 8;
-
-          // Añadir nueva página si se llena
-          if (yPosition > pageHeight - 30) {
-            pdf.addPage();
-            // Encabezado de tabla en nueva página
-            yPosition = 20;
-            pdf.setFillColor(lightGray[0], lightGray[1], lightGray[2]);
-            pdf.rect(20, yPosition - 5, pageWidth - 40, 8, 'F');
-            pdf.setFontSize(9);
-            pdf.setTextColor(0, 0, 0);
-            pdf.text('Producto', 25, yPosition);
-            pdf.text('Color', 120, yPosition);
-            pdf.text('Cantidad', 160, yPosition, { align: 'right' });
-            pdf.text('Precio', pageWidth - 25, yPosition, { align: 'right' });
-            yPosition += 10;
-          }
         });
 
-        // Línea separadora
+        // ========== LÍNEA SEPARADORA Y TOTAL ==========
         yPosition += 5;
         pdf.setDrawColor(200, 200, 200);
         pdf.line(20, yPosition, pageWidth - 20, yPosition);
-
-        // Total
         yPosition += 10;
         pdf.setFont('helvetica', 'bold');
         pdf.setFontSize(12);
         pdf.text('TOTAL:', 20, yPosition);
-        pdf.text(` € ${pedido.total.toFixed(2)}`, pageWidth - 21, yPosition, { align: 'right' });
+        pdf.text(`${pedido.total.toFixed(2)} €`, pageWidth - 21, yPosition, { align: 'right' }); // <--- Cambio aquí
 
-        // Pie de página
-        yPosition = pageHeight - 20;
-        pdf.setFontSize(8);
-        pdf.setTextColor(150, 150, 150);
-        pdf.text('Este documento fue generado automáticamente', 20, yPosition);
-        pdf.text(`Página 1`, pageWidth - 30, yPosition);
+        this.agregarPieDePagina(pdf, numeroPagina);
 
-        // EXPORTA como BLOB para poder enviarlo por email/frontend
         const pdfBlob = pdf.output('blob');
         resolve(pdfBlob);
       } catch (error) {
-        console.error('❌ Error al generar albarán:', error);
         reject(error);
       }
     });
   }
 
-  /**
-   * Formatea la fecha a español dd/mm/yyyy
-   */
   private formatearFecha(fecha: any): string {
     if (!fecha) return '';
     try {

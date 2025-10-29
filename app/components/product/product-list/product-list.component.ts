@@ -8,9 +8,10 @@ import { filter, map } from 'rxjs/operators';
 import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
-  selector: 'app-product-list',
-  templateUrl: './product-list.component.html',
-  styleUrls: []
+    selector: 'app-product-list',
+    templateUrl: './product-list.component.html',
+    styleUrls: [],
+    standalone: false
 })
 export class ProductListComponent implements OnInit {
   // Array para almacenar los productos a mostrar
@@ -48,14 +49,11 @@ export class ProductListComponent implements OnInit {
   }
 
   // Método implementado correctamente para abrir el popup del producto
-  openProductPopup(product: Product, event: Event): void {
-    // Prevenir la navegación normal (si usa routerLink)
-    event.preventDefault();
-    event.stopPropagation();
-    
-    // Seleccionar el producto para el popup
-    this.productService.selectProductForPopup(product);
+  openProductPopup(product: Product, event?: Event) {
+    if (event) { event.preventDefault(); event.stopPropagation(); }
+    this.productService.setSelectedProduct(product);
   }
+  
 
   // Método para verificar la ruta actual y cargar los productos correspondientes
   private checkRouteAndLoadProducts(): void {

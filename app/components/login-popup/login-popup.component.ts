@@ -4,10 +4,12 @@ import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 
 @Component({
-  selector: 'app-login-popup',
-  templateUrl: './login-popup.component.html',
-  styleUrls: ['./login-popup.component.scss'],
-  encapsulation: ViewEncapsulation.None // CRÍTICO: Permite que los estilos se apliquen globalmente
+    selector: 'app-login-popup',
+    templateUrl: './login-popup.component.html',
+    styleUrls: ['./login-popup.component.scss'],
+    encapsulation: ViewEncapsulation.None // CRÍTICO: Permite que los estilos se apliquen globalmente
+    ,
+    standalone: false
 })
 export class LoginPopupComponent implements OnInit {
   @Input() isVisible: boolean = false;

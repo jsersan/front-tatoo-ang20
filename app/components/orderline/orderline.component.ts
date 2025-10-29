@@ -4,9 +4,10 @@ import { ProductService } from '../../services/product.service';
 import Swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-orderline',
-  templateUrl: './orderline.component.html',
-  styleUrls: ['./orderline.component.scss']
+    selector: 'app-orderline',
+    templateUrl: './orderline.component.html',
+    styleUrls: ['./orderline.component.scss'],
+    standalone: false
 })
 export class OrderLineComponent implements OnInit {
   // Entrada: la línea de pedido a mostrar

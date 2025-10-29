@@ -1,8 +1,9 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 
 @Component({
-  selector: 'app-banner',
-  templateUrl: './banner.component.html'
+    selector: 'app-banner',
+    templateUrl: './banner.component.html',
+    standalone: false
 })
 export class BannerComponent implements OnInit, OnDestroy {
   // Array para almacenar las rutas a las imágenes del banner
